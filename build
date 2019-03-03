@@ -401,7 +401,7 @@ function download_sources() {
     if [[ -z ${TARBALLS} ]]; then
         if [[ ! -d mpfr ]]; then
             header "DOWNLOADING MPFR"
-            svn co svn://scm.gforge.inria.fr/svnroot/mpfr/${MPFR_svn} mpfr
+            svn co -q svn://scm.gforge.inria.fr/svnroot/mpfr/${MPFR_svn} mpfr
         fi
 
         if [[ ! -d mpc ]]; then
@@ -428,7 +428,7 @@ function download_sources() {
             header "DOWNLOADING GCC"
             if [[ ${SOURCE} == "linaro" && ${VERSION} -ge 8 ]]; then
                 # Fetch the so-called ARM toolchain from svn
-                svn co https://gcc.gnu.org/svn/gcc/branches/${GCC} gcc-${REPO}
+                svn co -q https://gcc.gnu.org/svn/gcc/branches/${GCC} gcc-${REPO}
             else
                 # Fetch GCC from git
                 git_clone https://git.linaro.org/toolchain/gcc.git -b ${GCC} gcc-${REPO}
