@@ -11,7 +11,8 @@ before_install:
 
 script:
   - chmod +x build
-  - travis_wait 50 ./build -a arm64 -s linaro -v 8 -V --tarballs
+  - chmod +x wrapper.sh
+  - ./wrapper.sh
   - tar cfJ aarch64-linux-gnu.tar.xz aarch64-linux-gnu
 
 deploy:
