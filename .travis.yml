@@ -14,12 +14,12 @@ jobs:
   include:
     - stage: Build
       script: 
-      - travis_wait 50 bash ./build -a arm -s linaro -v 8
+      - travis_wait 50 bash build -a arm -s linaro -v 8
       - ls
       - tar cfJ arm-linux-gnu.tar.xz arm-linux-gnu
       - tar cfJ aarch64-linux-gnu.tar.xz aarch64-linux-gnu
     - script: 
-      - travis_wait 50 bash ./build -a arm64 -s linaro -v 8
+      - travis_wait 50 bash build -a arm64 -s linaro -v 8
       - ls
       - tar cfJ arm-linux-gnu.tar.xz arm-linux-gnu
       - tar cfJ aarch64-linux-gnu.tar.xz aarch64-linux-gnu
